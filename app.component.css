@@ -1,0 +1,13 @@
+/* @media print {
+    .parent > *:not(.qrshow) {
+      display: none;
+    }
+  }
+   */
+  /* #printable { display: none; } */
+
+  @media print
+  {
+      #non-printable { display: none; }
+      #printable { display: block; }
+  }

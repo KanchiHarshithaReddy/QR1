@@ -1,0 +1,36 @@
+
+<div class="row " style="margin-top: 10px; margin-left: 5%;">
+  <div class="col-sm-6" id="non-printable">
+    <div class="card " style="width: 500px;box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2), 0 10px 100px 0 rgba(0, 0, 0, 0.19);
+    ">
+      <div class="card-body" style="text-align: center;">
+        <h3 class="card-title">Generate QR Code</h3>
+     
+        <form [formGroup]="formData">
+          <input type="text" placeholder="ënter file name" formControlName="value" name="value" /><br />
+          <!-- <button type="button" class="btn btn-primary mt-2" (click)="onSubmit()" [disabled]="formData.invalid">Generate</button> -->
+          <button class="btn btn-primary ml-15 mt-2" style="margin-left: 10px;" (click)="print()" [disabled]="formData.invalid">print</button>
+        </form>
+        <form [formGroup]="uploadfile">
+          <h3>Upload File</h3>
+          <input type="file" (change)="onFileSelected($event)" accept="application/pdf" style="    margin-top: 5px;
+          margin-left: 93px;">
+          <div style="color: red;">{{errormsg}}</div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 5px;" [disabled]="!show"
+                  (click)="onFileUpload()">
+            Submit
+          </button><br/>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6" >
+    <div>
+    <div>
+        <div id="printable">
+          <qrcode [qrdata]="urlData" #parent style="width:250px" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>
